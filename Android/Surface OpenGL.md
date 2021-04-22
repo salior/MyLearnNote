@@ -59,10 +59,10 @@ Thread {
 ## window上实践：
 https://blog.csdn.net/u010312436/article/details/82984322
 
-##Android里面的一些基本demo
+## Android里面的一些基本demo
 \frameworks\native\opengl\tests\angeles
 \frameworks\native\opengl\tests\gl2_basic
-
+这里面还有很多例子，需要直接去那里看就行。
 
 ## //glDrawTexiOES
 首先，这个函数的作用是将指定的纹理贴到视图中的一个矩形区域，无须坐标变换，渲染速度加快。
