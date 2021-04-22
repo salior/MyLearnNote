@@ -1,4 +1,4 @@
-##创建一个surface并显示：
+## 创建一个surface并显示：
 1、创建surfaceComposerClient，用它创建createSurface
 2、SurfaceComposerClient::Transaction{} setLayer show ，这时候是看不到任何东西的，因为这个surface没有画东西，所以看不到。
 adb shell dumpsys SurfaceFlinger
@@ -10,10 +10,10 @@ adb shell dumpsys SurfaceFlinger
   
 
   
-##openGL记录，链接 https://juejin.cn/post/6844903858380996616，这个作者的opengl为系列文章，可以跟学 
+## openGL记录，链接 https://juejin.cn/post/6844903858380996616，这个作者的opengl为系列文章，可以跟学 
 作者：程序员kenney
 
-##//参照\frameworks\native\opengl\tests\gl2_basic的程序记录一下基本顺序
+## //参照\frameworks\native\opengl\tests\gl2_basic的程序记录一下基本顺序
 1、在一个没有EGL环境的线程中调用了OpenGL ES API会失败，必须让一个线程拥有EGL环境，步骤以下几点：
 (1)初始化显示设备
 	dpy = eglGetDisplay(EGL_DEFAULT_DISPLAY);
@@ -56,7 +56,7 @@ Thread {
 
 (7) GLSurfaceView 其实和上面例子查不多，做完初始化就Renderer回调给用户画东西。
 
-##window上实践：
+## window上实践：
 https://blog.csdn.net/u010312436/article/details/82984322
 
 ##Android里面的一些基本demo
@@ -64,7 +64,7 @@ https://blog.csdn.net/u010312436/article/details/82984322
 \frameworks\native\opengl\tests\gl2_basic
 
 
-##//glDrawTexiOES
+## //glDrawTexiOES
 首先，这个函数的作用是将指定的纹理贴到视图中的一个矩形区域，无须坐标变换，渲染速度加快。
 使用的步骤大概如下：
       glGenTextures(...)
