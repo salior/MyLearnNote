@@ -87,12 +87,12 @@ https://blog.csdn.net/u010312436/article/details/82984322
 顶点数组对象：Vertex Array Object，VAO  
 顶点缓冲对象：Vertex Buffer Object，VBO  
 索引缓冲对象：Element Buffer Object，EBO或Index Buffer Object，IBO  
-3、着色器(Shader)。OpenGL着色器是用OpenGL着色器语言(OpenGL Shading Language, GLSL)写成。在现代OpenGL中，我们必须定义至少一个顶点着色器和一个片段着色器（因为GPU中没有默认的顶点/片段着色器）。  
+3、着色器(Shader)。OpenGL着色器是用OpenGL着色器语言(OpenGL Shading Language, GLSL)写成。在现代OpenGL中，我们必须定义至少一个顶点着色器和一个片段着色器（因为GPU中没有默认的顶点/片段着色器）。从基本意义上来说，着色器只是一种把输入转化为输出的程序。着色器也是一种非常独立的程序，因为它们之间不能相互通信；它们之间唯一的沟通只有通过输入和输出。  
 着色器其实可以这么理解，它是一个函数，输入一个，然后它对opengl内部的对应状态器进行输出：  
-	   char vShaderStr[] =
-				"attribute vec4 vPosition;\n"
-				"void main() {\n"
-				"  gl_Position = vPosition;\n"
+	   char vShaderStr[] =  
+				"attribute vec4 vPosition;\n"  
+				"void main() {\n"  
+				"  gl_Position = vPosition;\n"  
 				"}\n";  
 比如上面这个，输入一个position，然后不经任何变化就送到gl_Position，是一个最最简单的顶点着色器。  
 
