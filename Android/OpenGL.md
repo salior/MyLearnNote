@@ -11,8 +11,8 @@ adb shell dumpsys SurfaceFlinger
 
   
 ## openGL记录，有用的网页资料
-1、链接 https://juejin.cn/post/6844903858380996616，这个作者的opengl为系列文章，可以跟学 
-作者：程序员kenney
+1、链接 https://juejin.cn/post/6844903858380996616，这个作者的opengl为系列文章，可以跟学   
+作者：程序员kenney  
 2、https://learnopengl-cn.github.io/  opengl 3的中文书  
 
 ## //参照\frameworks\native\opengl\tests\gl2_basic的程序记录一下基本顺序
@@ -80,3 +80,21 @@ https://blog.csdn.net/u010312436/article/details/82984322
      glDrawTexiOES(...)  
      从上面可以看到，使用时主要是需要设置GL_TEXTURE_CROP_RECT_OES参数。  
     当然，还有其他渲染纹理的方法，那么何时该使用这种方式呢？  从该函数的应用范围可知，它一般适用于所贴纹理的区域是矩形区域，且不需要作坐标变换的情形。  
+    
+## LearnOpenGLCN学习笔记
+1、openGL就是一个巨大的状态机。  
+2、建议将这三个单词先记下来：  
+顶点数组对象：Vertex Array Object，VAO  
+顶点缓冲对象：Vertex Buffer Object，VBO  
+索引缓冲对象：Element Buffer Object，EBO或Index Buffer Object，IBO  
+3、着色器(Shader)。OpenGL着色器是用OpenGL着色器语言(OpenGL Shading Language, GLSL)写成。在现代OpenGL中，我们必须定义至少一个顶点着色器和一个片段着色器（因为GPU中没有默认的顶点/片段着色器）。  
+着色器其实可以这么理解，它是一个函数，输入一个，然后它对opengl内部的对应状态器进行输出：  
+	   char vShaderStr[] =
+				"attribute vec4 vPosition;\n"
+				"void main() {\n"
+				"  gl_Position = vPosition;\n"
+				"}\n";  
+比如上面这个，输入一个position，然后不经任何变化就送到gl_Position，是一个最最简单的顶点着色器。  
+
+4、
+
