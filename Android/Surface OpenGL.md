@@ -10,8 +10,10 @@ adb shell dumpsys SurfaceFlinger
   
 
   
-## openGL记录，链接 https://juejin.cn/post/6844903858380996616，这个作者的opengl为系列文章，可以跟学 
+## openGL记录，有用的网页资料
+1、链接 https://juejin.cn/post/6844903858380996616，这个作者的opengl为系列文章，可以跟学 
 作者：程序员kenney
+2、https://learnopengl-cn.github.io/  opengl 3的中文书
 
 ## //参照\frameworks\native\opengl\tests\gl2_basic的程序记录一下基本顺序
 1、在一个没有EGL环境的线程中调用了OpenGL ES API会失败，必须让一个线程拥有EGL环境，步骤以下几点：
