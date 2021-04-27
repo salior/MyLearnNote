@@ -96,5 +96,5 @@ https://blog.csdn.net/u010312436/article/details/82984322
 				"}\n";  
 比如上面这个，输入一个position，然后不经任何变化就送到gl_Position，是一个最最简单的顶点着色器。  
 
-4、
+4、请记住，矩阵乘法是反向应用的。  
 
