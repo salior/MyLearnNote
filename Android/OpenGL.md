@@ -107,6 +107,17 @@ OpenGL ES模拟器：总的来说，OpenGL ES的api与OpenGL有差异，Android�
 
 GLFW:GLFW is an Open Source, multi-platform library for OpenGL, OpenGL ES and Vulkan development on the desktop. It provides a simple API for creating windows, contexts and surfaces, receiving input and events.实际上这个就是为了使用OpenGL方便，对系统窗口的一个包装（window和Linux）。  
 
-extension:某个版本的OpenGL可以看它扩展的库有什么，这些库表示它支持什么功能。
+extension:某个版本的OpenGL可以看它扩展的库有什么，这些库表示它支持什么功能。  
 
-glm：GLM是OpenGL Mathematics的缩写，它是一个只有头文件的库，也就是说我们只需包含对应的头文件就行了，不用链接和编译。GLM可以在它们的网站上下载。把头文件的根目录复制到你的includes文件夹，然后你就可以使用这个库了。
+glm：GLM是OpenGL Mathematics的缩写，它是一个只有头文件的库，也就是说我们只需包含对应的头文件就行了，不用链接和编译。GLM可以在它们的网站上下载。把头文件的根目录复制到你的includes文件夹，然后你就可以使用这个库了。  
+glm主要是用于矩阵运算。  
+
+6、材质，为了让表现不同物体的光照效果，openGL会定义一个物体的材质：  
+struct Material {  
+    vec3 ambient;	环境光照，一般设置为物体颜色  
+    vec3 diffuse;	漫反射光照，一般设置为物体颜色  
+    vec3 specular;	镜面光照，一般应用设置白光，就是光滑点的反射颜色  
+    float shininess;	反光度  
+};   
+
+
