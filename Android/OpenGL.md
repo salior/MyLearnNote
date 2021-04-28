@@ -97,4 +97,16 @@ https://blog.csdn.net/u010312436/article/details/82984322
 比如上面这个，输入一个position，然后不经任何变化就送到gl_Position，是一个最最简单的顶点着色器。  
 
 4、请记住，矩阵乘法是反向应用的。  
+5、一些OpenGL开发使用到的库或者概念：  
+OpenGL:OpenGL（英语：Open Graphics Library，译名：开放图形库或者“开放式图形库”）是用于渲染2D、3D矢量图形的跨语言、跨平台的应用程序编程接口（API）。这个接口由近350个不同的函数调用组成，用来从简单的图形比特绘制复杂的三维景象。  
 
+OpenGL ES:OpenGL ES（OpenGL for Embedded Systems）是三维图形应用程序接口OpenGL的子集，针对手机、PDA和游戏主机等嵌入式设备而设计。  
+OpenGL ES是从OpenGL裁剪定制而来的，去除了glBegin/glEnd，四边形（GL_QUADS）、多边形（GL_POLYGONS）等复杂图元等许多非绝对必要的特性。经过多年发展，现在主要有两个版本，OpenGL ES 1.x针对固定管线硬件的，OpenGL ES 2.x针对可编程管线硬件。OpenGL ES 1.0是以OpenGL 1.3规范为基础的，OpenGL ES 1.1是以OpenGL 1.5规范为基础的，它们分别又支持common和common lite两种profile。lite profile只支持定点实数，而common profile既支持定点数又支持浮点数。OpenGL ES 2.0则是参照OpenGL 2.0规范定义的，common profile发布于2005-8，引入了对可编程管线的支持。OpenGL ES 3.0于2012年公布，加入了大量新特性。  
+
+OpenGL ES模拟器：总的来说，OpenGL ES的api与OpenGL有差异，Android上使用的是OpenGL ES，为了在PC上调试Android上的openGL代码，可以使用OpenGL ES模拟器。如果只是为了学习OpenGL，可以直接用GLFW，比较方便。  
+
+GLFW:GLFW is an Open Source, multi-platform library for OpenGL, OpenGL ES and Vulkan development on the desktop. It provides a simple API for creating windows, contexts and surfaces, receiving input and events.实际上这个就是为了使用OpenGL方便，对系统窗口的一个包装（window和Linux）。  
+
+extension:某个版本的OpenGL可以看它扩展的库有什么，这些库表示它支持什么功能。
+
+glm：GLM是OpenGL Mathematics的缩写，它是一个只有头文件的库，也就是说我们只需包含对应的头文件就行了，不用链接和编译。GLM可以在它们的网站上下载。把头文件的根目录复制到你的includes文件夹，然后你就可以使用这个库了。
