@@ -112,6 +112,8 @@ extension:某个版本的OpenGL可以看它扩展的库有什么，这些库表�
 glm：GLM是OpenGL Mathematics的缩写，它是一个只有头文件的库，也就是说我们只需包含对应的头文件就行了，不用链接和编译。GLM可以在它们的网站上下载。把头文件的根目录复制到你的includes文件夹，然后你就可以使用这个库了。  
 glm主要是用于矩阵运算。  
 
+Assimp:是跨平台的 3D模型导入库，旨在为不同的3D资产文件格式提供通用的应用程序编程接口（API）。用C ++编写，它提供了C和C ++的接口。Assimp目前支持57种不同的文件格式进行读取，包括COLLADA（.dae），3DS，DirectX X，Wavefront OBJ和Blender 3D（.blend）。[3]从3.0版开始，Assimp还提供了某些文件格式的导出功能。  
+
 6、材质，为了让表现不同物体的光照效果，openGL会定义一个物体的材质：  
 struct Material {  
     vec3 ambient;	环境光照，一般设置为物体颜色  
