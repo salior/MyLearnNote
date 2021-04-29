@@ -123,4 +123,7 @@ struct Material {
     float shininess;	反光度  
 };   
 
-
+7、OpenGL调试  
+（1)直接glGetError  
+（2)使用gDebugger这个工具，还没试用过  
+（3)在GLFW中请求一个调试输出非常简单，我们只需要传递一个提醒到GLFW中，告诉它我们需要一个调试输出上下文即可。我们需要在调用glfwCreateWindow之前完成这一请求。  
