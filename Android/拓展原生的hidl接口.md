@@ -8,8 +8,8 @@ import android.hardware.broadcastradio@1.1;
 
  
 /** 
- * Interacts with radio new api 
- */ 
+ Interacts with radio new api  
+ */  
 interface ITuner extends android.hardware.broadcastradio@1.1::ITuner { 
  
   setRDSData(int32_t param1, int32_t param2); 
@@ -27,8 +27,9 @@ hidl-gen -L androidbp -r android.hardware:hardware/interfaces -r android.hidl:sy
 直接使用vendor的ITuner就可以使用扩展的接口了。 
 
 在编译的时候，会有错误，这个需要在外层的bp文件加上： 
-hidl_package_root { 
-    name: "vendor.fce", 
-    path: "vendor/FCE/interfaces", 
-} 
+
+hidl_package_root {  
+    name: "vendor.fce",  
+    path: "vendor/FCE/interfaces",  
+}  
 
