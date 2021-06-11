@@ -33,3 +33,10 @@ hidl_package_root {
     path: "vendor/FCE/interfaces",  
 }  
 ```
+
+然后用以下命令生成接口的实现代码，  
+hidl-gen -o ./radio -Lc++-impl -randroid.hardware:hardware/interfaces -randroid.hidl:system/libhidl/transport vendor.fce.automotive.radio@1.0  
+这个会生成radio的实现代码，我们需要在生成的文件里填入实际的功能实现。  
+以下这个是生成实现代码的编译bp  
+hidl-gen -o ./radio -Landroidbp-impl -randroid.hardware:hardware/interfaces -randroid.hidl:system/libhidl/transport vendor.fce.automotive.radio@1.0  
+这样就可以编译实际的服务了。  
