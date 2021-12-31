@@ -1,0 +1,30 @@
+在system/sepolicy/下添加一个模块的te
+
+以udev为例，以下为udevd.te的内容：
+type udevd, domain, coredomain;
+type udevd_exec, exec_type, file_type;
+init_daemon_domain(udevd)
+
+allow udevd udevd:netlink_kobject_uevent_socket { create bind getattr read write setopt };
+。。。。。
+
+
+原来尝试直接将udevd.te放到/system/sepolicy/public下面，但是有init_daemon_domain(udevd)这句是编译不过的，这句的意思是：init启动service时类型转换声明，直接用一个宏，主要是用于把udevd_exec（客体）转换成udevd（进程域），这里这个解释没有看懂，暂时把这句话注释，可以编译过了，然而烧录之后，看到进程启动不了。搜了一下system的例子，看到这句话只能用在/system/sepolicy/private下，接着把这个放到private下试，这个时候，在vendor/FCE/下的te文件对其引用又找不到了，这样看来就是private是不对外的。最终把udevd.te放到/system/sepolicy/vendor下面，编译运行ok。
+后续发现放/system/sepolicy/vendor下面也不大行，因为在domain.te下加上其豁免-udevd又说找不到udevd，参考了一下system下的te写法，最终找到一个最终方法：
+udevd.te这个文件，分开两块：
+1、/system/sepolicy/public/udevd.te
+type udevd, domain, coredomain;	 //内容只有这一句，就是只声明。
+2、vendor/FCE/sepolicy/udevd.te  //具体的权限设置放在这里
+type udevd_exec, exec_type, file_type;
+init_daemon_domain(udevd)
+
+allow udevd udevd:netlink_kobject_uevent_socket { create bind getattr read write setopt };
+。。。。。
+
+
+在vendor/FCE/sepolicy/的file_contexts里，加上一句：
+#fce pulsar
+/system/bin/udevd     				u:object_r:udevd_exec:s0
+
+备注：
+/system/sepolicy/public or private目录下加东西，对应的prebuilt/api/下的要对应修改，不然就编译不过
