@@ -14,6 +14,8 @@ allow udevd udevd:netlink_kobject_uevent_socket { create bind getattr read write
 udevd.te这个文件，分开两块：
 1、/system/sepolicy/public/udevd.te
 type udevd, domain, coredomain;	 //内容只有这一句，就是只声明。
+注：为什么要放在public？因为要在system的domain里引用它，不放这里引用不了。为什么放private不行，因为vendor要用到它。
+
 2、vendor/FCE/sepolicy/udevd.te  //具体的权限设置放在这里
 type udevd_exec, exec_type, file_type;
 init_daemon_domain(udevd)
