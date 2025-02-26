@@ -61,4 +61,12 @@ lsof /dev/pcmC0D0c
 
 16、adb shell执行多个命令
 adb shell "cd /data/local/tmp; ./dm --src gm --config gl"
-```
+
+17、在shell环境remount
+mount -o remount,rw /
+
+18、adb连接后，和pc端联调网络
+adb forward tcp:8999 tcp:8999  //pc做客户端，车机做服务端
+adb forward --remove-all 
+adb reverse tcp:8999 tcp:8999  //车机做客户端，pc做服务端
+adb reverse --remove-all
